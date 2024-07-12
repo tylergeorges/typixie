@@ -2,31 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
+  .horizontal {
+    @apply flex flex-row;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .vertical {
+    @apply flex flex-col;
+  }
+
+  .horizontal.center-v {
+    @apply items-center;
+  }
+
+  .horizontal.center-h {
+    @apply justify-center;
+  }
+
+  .horizontal.center {
+    @apply justify-center items-center;
+  }
+
+  .vertical.center-v {
+    @apply justify-center;
+  }
+
+  .vertical.center-h {
+    @apply items-center;
+  }
+
+  .vertical.center {
+    @apply justify-center items-center;
+  }
+
+  .space-between {
+    @apply justify-between;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.correct {
+  @apply text-secondary;
+}
+
+.incorrect {
+  @apply text-error;
+}
+
+@layer base {
+  html {
+    --background: hsl(0deg 12% 8%);
+    --secondary: hsl(27deg 31% 70%);
+    --tertiary: hsl(0deg 11% 24%);
+    --primary: hsl(39deg 100% 61%);
+    --error: hsl(4deg 96% 52%);
+
+    @apply scroll-smooth w-full h-full;
+  }
+
+  @import "../styles/themes.css";
+
+  body {
+    @apply bg-background  w-full h-full;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
 }
 
 @layer utilities {
+  .ligatures-none {
+    font-variant-ligatures: none;
+  }
+
+  .ligatures-common {
+    font-variant-ligatures: common;
+  }
+  .ligatures-discretionary {
+    font-variant-ligatures: discretionary;
+  }
+  .ligatures-historical {
+    font-variant-ligatures: historical;
+  }
+  .ligatures-contextual {
+    font-variant-ligatures: contextual;
+  }
+
+  .ligatures-no-common {
+    font-variant-ligatures: no-common;
+  }
+  .ligatures-no-discretionary {
+    font-variant-ligatures: no-discretionary;
+  }
+  .ligatures-no-historical {
+    font-variant-ligatures: no-historical;
+  }
+  .ligatures-no-contextual {
+    font-variant-ligatures: no-contextual;
+  }
+
   .text-balance {
     text-wrap: balance;
   }

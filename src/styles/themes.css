@@ -1,0 +1,26 @@
+/** Default */
+html[data-theme="theme0"] {
+  --background: hsl(0deg 12% 8%);
+  --secondary: hsl(27deg 31% 70%);
+  --tertiary: hsl(0deg 11% 24%);
+  --primary: hsl(39deg 100% 61%);
+  --error: hsl(4deg 96% 52%);
+}
+
+/** Blackhole */
+html[data-theme="theme1"] {
+  --background: hsl(220deg 20% 3%);
+  --tertiary: hsl(220deg 29% 13%);
+  --secondary: hsl(221deg 20% 35%);
+  --primary: hsl(221deg 100% 92%);
+  --error: hsl(0deg 100% 50%);
+}
+
+/** Eudaemonia */
+html[data-theme="theme2"] {
+  --background: hsl(53deg 7% 75%);
+  --tertiary: hsl(53deg 7% 60%);
+  --secondary: hsl(195deg 5% 15%);
+  --primary: hsl(344deg 98% 33%);
+  --error: hsl(0deg 0% 100%);
+}
