@@ -1,31 +1,13 @@
+import { VariantProps } from 'tailwind-variants';
+
 declare global {
   type Prettify<T> = {
     [K in keyof T]: T[K];
   } & {};
 
   type ReactSetState<T> = React.Dispatch<React.SetStateAction<T>>;
+
+  type VariantOmit<V extends VariantProps<any>, P> = Omit<P, keyof V> & V;
 }
-
-// declare global {}
-
-// if (import.meta.hot) {
-//   useStore.subscribe((state) => {
-//     if (typeof window !== "undefined") {
-//       window.__store = state;
-//     }
-//   });
-
-//   import.meta.hot!.accept((newModule) => {
-//     if (!newModule) return;
-
-//     const newStore = newModule.useStore;
-
-//     if (!newStore) return;
-
-//     if (window.__store) {
-//       newStore.setState(window.__store, true);
-//     }
-//   });
-// }
 
 export {};

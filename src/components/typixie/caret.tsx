@@ -4,6 +4,7 @@ import { useRef } from 'react';
 
 import { cn } from '@/utils/cn';
 import { set } from '@/utils/style-helpers';
+import { wpm } from '@/utils/wpm';
 
 import { useAppActions, useAppStore } from '@/lib/state';
 import { useKeyDown } from '@/hooks/use-key-down';
@@ -14,8 +15,8 @@ export const Caret = () => {
 
   const { setCaret, back, keydown, setIsTyping } = useAppActions();
 
-  const totalTime = useAppStore(state => state.totalTime);
   const totalCharsTyped = useAppStore(state => state.totalCharsTyped);
+  const lastCharTypedTime = useAppStore(state => state.lastCharTypedTime);
 
   const setCaretStyle = (styles: React.CSSProperties | string) => {
     const caret = caretRef.current;
@@ -43,17 +44,11 @@ export const Caret = () => {
     setIsTyping(false);
   });
 
-  function getSpeed(words: number, time: number) {
-    return words === 0 || time === 0 ? 0 : Math.round((words / time) * 60 * 1000);
-  }
-
-  const numOfWords = totalCharsTyped;
-
-  const wpmSpeed = getSpeed(numOfWords, totalTime * 5);
+  const wpmSpeed = wpm(totalCharsTyped, lastCharTypedTime);
 
   return (
     <>
-      <span className="absolute -top-10 text-secondary">{wpmSpeed}</span>
+      <span className="absolute -top-10 text-primary">{wpmSpeed} wpm</span>
 
       <div
         ref={el => {

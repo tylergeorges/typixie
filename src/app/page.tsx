@@ -3,10 +3,10 @@ import { Typixie } from "@/components/typixie";
 
 export default function Home() {
   return (
-    <main className="flex h-full w-full flex-col items-center justify-between p-24">
+    <div className="flex h-full w-full flex-col items-center justify-between p-8 md:p-24">
       <Typixie />
 
       <ThemeSwitcher />
-    </main>
+    </div>
   );
 }

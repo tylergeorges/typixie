@@ -20,7 +20,7 @@
   }
 
   .horizontal.center {
-    @apply justify-center items-center;
+    @apply items-center justify-center;
   }
 
   .vertical.center-v {
@@ -32,7 +32,7 @@
   }
 
   .vertical.center {
-    @apply justify-center items-center;
+    @apply items-center justify-center;
   }
 
   .space-between {
@@ -56,18 +56,18 @@
     --primary: hsl(39deg 100% 61%);
     --error: hsl(4deg 96% 52%);
 
-    @apply scroll-smooth w-full h-full;
+    @apply h-full w-full scroll-smooth;
   }
 
-  @import "../styles/themes.css";
+  @import '../styles/themes.css';
 
   body {
-    @apply bg-background  w-full h-full;
+    @apply h-full w-full bg-background;
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
     font-feature-settings:
-      "rlig" 1,
-      "calt" 1;
+      'rlig' 1,
+      'calt' 1;
   }
 }
 

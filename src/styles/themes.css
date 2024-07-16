@@ -1,5 +1,5 @@
 /** Default */
-html[data-theme="theme0"] {
+[data-theme='theme0'] {
   --background: hsl(0deg 12% 8%);
   --secondary: hsl(27deg 31% 70%);
   --tertiary: hsl(0deg 11% 24%);
@@ -7,8 +7,17 @@ html[data-theme="theme0"] {
   --error: hsl(4deg 96% 52%);
 }
 
+/** Oxocarbon */
+[data-theme='theme1'] {
+  --background: #161616;
+  --secondary: #dde1e6;
+  --tertiary: #262626;
+  --primary: #ff7eb6;
+  --error: #ee5396;
+}
+
 /** Blackhole */
-html[data-theme="theme1"] {
+[data-theme='theme2'] {
   --background: hsl(220deg 20% 3%);
   --tertiary: hsl(220deg 29% 13%);
   --secondary: hsl(221deg 20% 35%);
@@ -17,7 +26,7 @@ html[data-theme="theme1"] {
 }
 
 /** Eudaemonia */
-html[data-theme="theme2"] {
+[data-theme='theme3'] {
   --background: hsl(53deg 7% 75%);
   --tertiary: hsl(53deg 7% 60%);
   --secondary: hsl(195deg 5% 15%);

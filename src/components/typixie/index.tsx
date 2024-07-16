@@ -17,7 +17,7 @@ export const Typixie = () => {
       style={{ gridColumn: 'full-width' }}
       className="relative flex max-w-2xl overflow-hidden lg:max-w-5xl"
     >
-      <Row className="relative mt-40 text-center font-mono leading-[1.3] sm:text-3xl md:text-2xl lg:text-[40px]">
+      <Row className="relative mt-40 text-center font-mono text-xl md:text-2xl md:leading-[1.3] lg:text-[40px]">
         <Caret />
 
         <div className="text-center">
