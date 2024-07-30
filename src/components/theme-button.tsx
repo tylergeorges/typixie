@@ -7,7 +7,6 @@ import { useTheme } from 'next-themes';
 import type { Theme } from '@/components/typixie/types';
 import { cn } from '@/utils/cn';
 
-import { Button } from '@/components/ui/button';
 import { MotionButton, MotionDiv } from '@/components/motion';
 
 const themeButton = tv({
@@ -42,7 +41,7 @@ const themeButton = tv({
 type ThemeButtonVariants = VariantProps<typeof themeButton>;
 
 interface ThemeButtonProps
-  extends VariantOmit<ThemeButtonVariants, React.ComponentProps<typeof Button>> {
+  extends VariantOmit<ThemeButtonVariants, React.ComponentProps<typeof MotionButton>> {
   theme: Theme;
 }
 

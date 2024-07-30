@@ -1,4 +1,3 @@
-import { State } from '@/lib/types';
 import { remove, set } from '@/utils/style-helpers';
 
 export function setCaretStyle(caret: HTMLDivElement, styles: React.CSSProperties | string) {

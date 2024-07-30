@@ -50,6 +50,7 @@ export const Caret = () => {
     setIsTyping(false);
   });
 
+  // @ts-ignore
   const getWpm = () => wpm(totalCharsTyped, lastCharTypedTime);
 
   useWindowResize(() => {

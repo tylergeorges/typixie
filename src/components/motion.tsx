@@ -1,16 +1,16 @@
 'use client';
 
-import { AnimatePresence, motion, useWillChange, MotionProps } from 'framer-motion';
-import { forwardRef } from 'react';
+import { AnimatePresence, motion, useWillChange, HTMLMotionProps } from 'framer-motion';
+import { forwardRef, ReactHTML } from 'react';
 
 const stiffness = 400;
 const damping = 30;
 
-interface CustomMotionProps extends MotionProps {
+export type CustomMotionProps<T extends keyof ReactHTML = 'div'> = HTMLMotionProps<T> & {
   id?: string;
   className?: string;
   children?: React.ReactNode;
-}
+};
 
 export const MotionDiv = forwardRef<HTMLDivElement, CustomMotionProps>(
   ({ className, children, ...props }, ref) => {
@@ -36,7 +36,7 @@ export const MotionDiv = forwardRef<HTMLDivElement, CustomMotionProps>(
 
 MotionDiv.displayName = 'MotionDiv';
 
-export const MotionButton = forwardRef<HTMLButtonElement, CustomMotionProps>(
+export const MotionButton = forwardRef<HTMLButtonElement, CustomMotionProps<'button'>>(
   ({ className, children, ...props }, ref) => {
     const willChange = useWillChange();
 

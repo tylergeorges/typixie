@@ -4,6 +4,7 @@ import { fontFamily } from 'tailwindcss/defaultTheme';
 
 import { withTV } from 'tailwind-variants/transformer';
 import TailwindAnimate from 'tailwindcss-animate';
+// @ts-ignore
 import TailwindMaskImage from 'tailwind-gradient-mask-image';
 
 const config: Config = {
