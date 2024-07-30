@@ -3,6 +3,7 @@ export type State = {
   charIdx: number;
   words: string[];
   caret: HTMLDivElement | null;
+  scroller: HTMLDivElement | null;
   activeWord: HTMLElement | null;
   totalTime: number;
   lastCharTypedTime: number;
@@ -15,6 +16,7 @@ export type State = {
 export type Actions = {
   setActiveWord: (activeWord: HTMLElement) => void;
   setCaret: (caret: HTMLDivElement) => void;
+  setScroller: (caret: HTMLDivElement) => void;
   keydown: (key: string) => void;
   back: (isCtrl: boolean) => void;
   setIsTyping: (isTyping: boolean) => void;

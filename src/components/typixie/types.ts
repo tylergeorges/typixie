@@ -17,3 +17,8 @@ export interface TypixiePosition {
 }
 
 export type CursorPos = [pos: number, char: string];
+
+export interface Theme {
+  idx: number;
+  name: string;
+}

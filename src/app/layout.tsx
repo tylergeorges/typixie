@@ -33,7 +33,7 @@ export default function RootLayout({
       <head />
 
       <body className={cn('font-sans', fontMono.variable, fontSans.variable)}>
-        <ThemeProvider themes={['theme0', 'theme1', 'theme2', 'theme3']}>
+        <ThemeProvider defaultTheme="theme0" themes={['theme0', 'theme1', 'theme2', 'theme3']}>
           <main className="flex h-full w-full flex-col overflow-auto">{children}</main>
         </ThemeProvider>
       </body>

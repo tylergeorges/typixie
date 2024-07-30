@@ -1,6 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion, useWillChange, MotionProps } from 'framer-motion';
+import { forwardRef } from 'react';
 
 const stiffness = 400;
 const damping = 30;
@@ -8,49 +9,54 @@ const damping = 30;
 interface CustomMotionProps extends MotionProps {
   id?: string;
   className?: string;
-  isOpen: boolean;
   children?: React.ReactNode;
 }
 
-export const MotionDiv = ({ className, isOpen, children, ...props }: CustomMotionProps) => {
-  const willChange = useWillChange();
+export const MotionDiv = forwardRef<HTMLDivElement, CustomMotionProps>(
+  ({ className, children, ...props }, ref) => {
+    const willChange = useWillChange();
 
-  return (
-    <motion.div
-      initial={{ width: 48, height: 48 }}
-      animate={{
-        height: 48,
-        width: 'auto'
-      }}
-      transition={{
-        type: 'spring',
-        damping,
-        stiffness
-      }}
-      style={{ willChange }}
-      className={className}
-      {...props}
-    >
-      <AnimatePresence>{children}</AnimatePresence>
-    </motion.div>
-  );
-};
+    return (
+      <motion.div
+        transition={{
+          type: 'spring',
+          damping,
+          stiffness
+        }}
+        style={{ willChange }}
+        className={className}
+        {...props}
+        ref={ref}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+);
 
-export const MotionButton = ({ className, isOpen, children, ...props }: CustomMotionProps) => {
-  const willChange = useWillChange();
+MotionDiv.displayName = 'MotionDiv';
 
-  return (
-    <motion.button
-      transition={{
-        type: 'spring',
-        damping,
-        stiffness
-      }}
-      style={{ willChange }}
-      className={className}
-      {...props}
-    >
-      <AnimatePresence>{children}</AnimatePresence>
-    </motion.button>
-  );
-};
+export const MotionButton = forwardRef<HTMLButtonElement, CustomMotionProps>(
+  ({ className, children, ...props }, ref) => {
+    const willChange = useWillChange();
+
+    return (
+      <motion.button
+        transition={{
+          type: 'spring',
+          damping,
+          stiffness
+        }}
+        tabIndex={-1}
+        style={{ willChange }}
+        className={className}
+        {...props}
+        ref={ref}
+      >
+        <AnimatePresence>{children}</AnimatePresence>
+      </motion.button>
+    );
+  }
+);
+
+MotionButton.displayName = 'MotionButton';

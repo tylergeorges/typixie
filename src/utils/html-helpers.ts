@@ -5,11 +5,12 @@ export function setCaretStyle(caret: HTMLDivElement, styles: React.CSSProperties
   set(caret, styles);
 }
 
-export function setCaretPosition(state: State, activeWord: HTMLElement, charIdx: number) {
-  const { caret } = state;
-
-  if (!caret) return;
-
+export function setCaretPosition(
+  caret: HTMLDivElement,
+  activeWord: HTMLElement,
+  charIdx: number,
+  scroller: HTMLDivElement | null
+) {
   if (caret.classList.contains('opacity-0')) {
     caret.classList.remove('opacity-0');
 
@@ -25,6 +26,12 @@ export function setCaretPosition(state: State, activeWord: HTMLElement, charIdx:
       transform: `translateX(${charLeftElement.offsetLeft}px) translateY(${charLeftElement.offsetTop}px)`,
       width: `${charElementRect.width}px`
     });
+
+    if (scroller) {
+      set(scroller, {
+        transform: `translateY(calc(-${charLeftElement.offsetTop}px + 2em))`
+      });
+    }
   }
 }
 
